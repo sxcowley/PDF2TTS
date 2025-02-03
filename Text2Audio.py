@@ -57,6 +57,11 @@ def main():
 
             print(f"Processing Page {page_num + 1}...")
 
+            # Check if the extracted text is not empty
+            if not text.strip():
+                print("Page contains no readable content.")
+                continue
+
             # Save the speech to a file in the Downloads folder
             tts = gTTS(text=text, lang='en')
             mp3_file_path = os.path.join(downloads_path, f"page_{page_num + 1}.mp3")
